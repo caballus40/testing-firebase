@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,12 @@ use App\Http\Controllers\FirebaseController;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+Route::get('contacts', [ContactController::class, 'index']);
+Route::get('add-contact', [ContactController::class, 'create']);
+Route::post('add-contact', [ContactController::class, 'store']);
+Route::get('edit-contact/{id}', [ContactController::class, 'edit']);
+Route::post('update-contact/{id}', [ContactController::class, 'update']);
+Route::get('delete-contact/{id}', [ContactController::class, 'destroy']);
+
 Route::get('get-firebase-data', [FirebaseController::class, 'index'])->name('firebase.index');
 
