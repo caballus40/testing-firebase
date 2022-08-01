@@ -13,7 +13,8 @@ class ContactController extends Controller
     }
 
     public function index() {
-        $contacts = $this->database->getReference($this->tablename)->getValue();
+        $contacts = $this->database->getReference($this->tablename)->orderByKey()
+        ->getSnapshot();
         return view('firebase.contact.index',compact('contacts'));
     }
 
