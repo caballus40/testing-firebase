@@ -32,13 +32,13 @@
                         </thead>
                         <tbody>
                             @php $i=1; @endphp
-                            @forelse ( $contacts as $key => $item )
+                            @forelse ( $contacts as $key => $contact )
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $item['fname'] }}</td>
-                                <td>{{ $item['lname'] }}</td>
-                                <td>{{ $item['email'] }}</td>
-                                <td>{{ $item['phone'] }}</td>
+                                <td>{{ $contact['fname'] }}</td>
+                                <td>{{ $contact['lname'] }}</td>
+                                <td>{{ $contact['email'] }}</td>
+                                <td>{{ $contact['phone'] }}</td>
                                 <td><a href="{{ url('edit-contact/'.$key) }}" class="btn btn-sm btn-success">Edit</a></td>
                                 <td><a href="{{ url('delete-contact/'.$key) }}" class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>

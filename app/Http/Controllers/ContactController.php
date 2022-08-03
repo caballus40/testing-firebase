@@ -15,7 +15,9 @@ class ContactController extends Controller
     public function index() {
         $contacts = $this->database->getReference($this->tablename)->orderByKey()
         ->getSnapshot();
-        return view('firebase.contact.index',compact('contacts'));
+        if($contacts)
+            return view('firebase.contact.index',compact('contacts'));
+
     }
 
     public function create() {
